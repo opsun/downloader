@@ -17,6 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -30,8 +31,6 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
-
-import com.herodl.utils.Assert;
 
 public class Downloader {
 	private final static Logger log = Logger.getLogger(Downloader.class);
@@ -264,8 +263,8 @@ public class Downloader {
 		private void initRequest(){
 			//设置请求相关参数
 			request = new SimpleHttpRequest(taskInfo.getUrl(), taskInfo.getMethod());
-			request.setHeader("User-Agent", Assert.isEmpty(taskInfo.getUserAgent())?defaultUserAgent:taskInfo.getUserAgent());
-			if(!Assert.isEmpty(taskInfo.getReferer())){
+			request.setHeader("User-Agent", StringUtils.isEmpty(taskInfo.getUserAgent())?defaultUserAgent:taskInfo.getUserAgent());
+			if(!StringUtils.isEmpty(taskInfo.getReferer())){
 				request.setHeader("Referer", taskInfo.getReferer());
 			}
 			

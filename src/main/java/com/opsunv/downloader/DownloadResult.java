@@ -3,9 +3,8 @@ package com.opsunv.downloader;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.Header;
-
-import com.herodl.utils.Assert;
 
 
 /**
@@ -38,7 +37,7 @@ public class DownloadResult {
 	 */
 	public List<Header> getHeaders(String key){
 		List<Header> list = new ArrayList<Header>();
-		if(headers!=null&&!Assert.isEmpty(key)){
+		if(headers!=null&&!StringUtils.isEmpty(key)){
 			for(Header h :headers){
 				if(key.equals(h.getName())){
 					list.add(h);
@@ -74,7 +73,7 @@ public class DownloadResult {
 	}
 	
 	public String getHeader(String key){
-		if(Assert.isEmpty(key)){
+		if(StringUtils.isEmpty(key)){
 			return null;
 		}
 		

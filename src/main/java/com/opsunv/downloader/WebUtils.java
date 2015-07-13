@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import java.util.zip.DeflaterInputStream;
 import java.util.zip.GZIPInputStream;
 
-import com.herodl.utils.Assert;
+import org.apache.commons.lang.StringUtils;
 
 
 /**
@@ -125,7 +125,7 @@ public class WebUtils {
 	 * @return
 	 */
 	public static List<String> getSuperLink(String content,String baseurl){
-		if(Assert.isEmpty(content)){
+		if(StringUtils.isEmpty(content)){
 			return null;
 		}
 		

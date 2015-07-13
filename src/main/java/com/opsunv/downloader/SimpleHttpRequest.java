@@ -4,11 +4,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.message.BasicNameValuePair;
-
-import com.herodl.utils.Assert;
 
 /**
  * 封装了一些常用的http请求操作
@@ -76,7 +75,7 @@ public class SimpleHttpRequest extends HttpEntityEnclosingRequestBase{
 	}
 
 	public void setMethod(String method) {
-		this.method = Assert.isEmpty(method)?GET:method.toUpperCase();
+		this.method = StringUtils.isEmpty(method)?GET:method.toUpperCase();
 	}
     
 }
